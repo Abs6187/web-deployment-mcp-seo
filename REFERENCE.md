@@ -4,36 +4,6 @@ An extensive technical reference covering diagnostic procedures, root-cause anal
 
 ---
 
-## Official Documentation & API Portal Links to Visit
-
-### Google Cloud & Analytics APIs
-- **Google Analytics Data API Enablement Portal:**
-  `https://console.developers.google.com/apis/api/analyticsdata.googleapis.com/overview?project=<YOUR_PROJECT_ID>`
-- **Google Analytics Admin API Enablement Portal:**
-  `https://console.developers.google.com/apis/api/analyticsadmin.googleapis.com/overview?project=<YOUR_PROJECT_ID>`
-- **Google Cloud IAM & Credentials Console:**
-  `https://console.cloud.google.com/apis/credentials`
-- **Google Search Console Overview:**
-  `https://search.google.com/search-console`
-
-### Analytics & Search Engine Portals
-- **Bing Webmaster Tools API Access Key Page:**
-  `https://www.bing.com/webmasters/settings/api`
-- **Google Analytics Admin Dashboard:**
-  `https://analytics.google.com/`
-
-### Hosting & Web Standards
-- **Vercel CLI Command Reference:**
-  `https://vercel.com/docs/cli`
-- **Vercel Custom Domain Verification Guide:**
-  `https://vercel.com/docs/projects/domains`
-- **Schema.org ContactAction Specification:**
-  `https://schema.org/ContactAction`
-- **FormSubmit Endpoint Documentation:**
-  `https://formsubmit.co/`
-
----
-
 ## Deep Diagnostic Procedures
 
 ### 1. Vercel CLI Upload & Network Diagnostics
@@ -61,9 +31,9 @@ Error: request to https://api.vercel.com/v13/deployments?teamId=... failed, reas
      service-account*.json
      ```
   2. Verify payload size drops from ~10MB to < 1KB.
-  3. Re-run deployment with `--scope`:
+  3. Re-run deployment with `--scope` and environment variable `VERCEL_TOKEN`:
      ```bash
-     npx vercel --prod --yes --scope <your-team-scope> --token=<VERCEL_TOKEN>
+     npx vercel --prod --yes --scope <your-team-scope>
      ```
 
 ---
@@ -113,7 +83,6 @@ Error: request to https://api.vercel.com/v13/deployments?teamId=... failed, reas
 #### Error Code `7 PERMISSION_DENIED` (GA4 Data API)
 * **Symptom:** `Google Analytics Data API has not been used in project X before or it is disabled.`
 * **Fix Workflow:**
-  1. Visit: `https://console.developers.google.com/apis/api/analyticsdata.googleapis.com/overview?project=<YOUR_PROJECT_ID>`
-  2. Click the blue **ENABLE** button.
-  3. In Google Analytics Admin → *Property Access Management*, add the Service Account email (`mcp-ga4@...`) with **Viewer** role.
-  4. Run `npx search-console-mcp setup --engine=ga4` and supply the JSON key path and numeric Property ID (e.g. `123456789`).
+  1. Enable `analyticsdata.googleapis.com` in Google Cloud Console for your project ID.
+  2. In Google Analytics Admin → *Property Access Management*, add the Service Account email (`mcp-ga4@...`) with **Viewer** role.
+  3. Run `npx search-console-mcp setup --engine=ga4` and supply the JSON key path and numeric Property ID (e.g. `123456789`).

@@ -4,12 +4,6 @@ This document contains copy-pasteable configuration examples, HTML/CSS code stub
 
 ---
 
-## Repository References
-- **Search Console MCP:** [github.com/saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
-- **Vercel CLI:** [github.com/vercel/vercel](https://github.com/vercel/vercel)
-
----
-
 ## 1. MCP Client Configuration (`mcpServers` JSON)
 
 Add this block to your AI agent's configuration file (e.g., `claude_desktop_config.json`, Cursor MCP settings, or Antigravity config):

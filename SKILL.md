@@ -9,28 +9,12 @@ An extensive, production-grade guide for web deployment automation, DNS troubles
 
 ---
 
-## Official Repositories & Documentation Links
-
-### Core Repositories & Tools
-- **Search Console MCP Repository:** [saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
-- **Vercel CLI Repository:** [vercel/vercel](https://github.com/vercel/vercel)
-- **Google APIs Node Client:** [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client)
-
-### Essential Documentation Links to Visit
-- **Search Console MCP Official Documentation:** [searchconsolemcp.saurabh.app](https://searchconsolemcp.saurabh.app/)
-- **Google Analytics Data API Reference:** [developers.google.com/analytics/devguides/reporting/data/v1](https://developers.google.com/analytics/devguides/reporting/data/v1)
-- **Google Cloud Console Credentials:** [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
-- **Bing Webmaster Tools API Settings:** [www.bing.com/webmasters/settings/api](https://www.bing.com/webmasters/settings/api)
-- **Vercel Custom Domains & DNS Routing:** [vercel.com/docs/projects/domains](https://vercel.com/docs/projects/domains)
-- **Schema.org ContactAction Microdata Spec:** [schema.org/ContactAction](https://schema.org/ContactAction)
-
----
-
 ## Quick start
 
 ```bash
 # 1. Optimize deployment payload and deploy to Vercel production
-npx vercel --prod --yes --scope <your-scope> --token=<your-token>
+# Note: Use environment variable VERCEL_TOKEN rather than inline command line flags
+npx vercel --prod --yes --scope <your-scope>
 
 # 2. Authenticate Google Search Console via MCP
 npx search-console-mcp setup --engine=google
@@ -62,5 +46,5 @@ npx search-console-mcp setup --engine=ga4
 
 ## References & Documentation
 
-- See [REFERENCE.md](REFERENCE.md) for deep technical diagnostics, error codes, and API enablement links.
+- See [REFERENCE.md](REFERENCE.md) for deep technical diagnostics and error codes.
 - See [EXAMPLES.md](EXAMPLES.md) for complete template patterns, MCP client configs, and CLI snippets.
