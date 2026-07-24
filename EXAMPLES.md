@@ -1,10 +1,10 @@
-# Complete Technical Examples & Code Snippets
+# Technical Examples & Code Snippets
 
-This document contains copy-pasteable configuration examples, HTML/CSS code stubs, and CLI commands for web deployments, WebMCP security, and Search Console MCP integrations.
+This document contains configuration examples, HTML/CSS code stubs, and pattern examples for web deployments, WebMCP security, and search analytics integrations.
 
 ---
 
-## 1. MCP Client Configuration (`mcpServers` JSON)
+## 1. Analytics MCP Client Configuration (`mcpServers` JSON)
 
 Add this block to your AI agent's configuration file (e.g., `claude_desktop_config.json`, Cursor MCP settings, or Antigravity config):
 
@@ -142,11 +142,8 @@ scratch/
 
 ---
 
-## 5. Useful AI Prompts for MCP Search Console Queries
+## 5. Directional Prompts for Analytics Queries
 
-```text
-- "What are my top performing search keywords on example.com?"
-- "Find keywords ranking positions 8–15 with high search impressions — my best quick win targets."
-- "Run an opportunity matrix query for my top 20 pages."
-- "Check for keyword cannibalization across all indexed pages."
-```
+- Ask agent to query keywords ranking in positions 8–15 with high impressions.
+- Ask agent to run an opportunity matrix query for top pages.
+- Ask agent to check keyword cannibalization across indexed URLs.

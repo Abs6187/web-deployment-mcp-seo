@@ -1,50 +1,48 @@
 ---
 name: web-deployment-mcp-seo
-description: Setup, debug, and automate Vercel web deployments, Namecheap DNS configuration, WebMCP form security, and Model Context Protocol (MCP) integrations for Google Search Console and GA4. Use when deploying static or full-stack sites to Vercel, configuring custom domain DNS records, setting up search-console-mcp or GA4 service accounts, resolving Vercel CLI upload timeouts, or fixing Chrome insecure form autofill warnings.
+description: Guidelines and directional workflows for Vercel web deployments, Namecheap DNS configuration, WebMCP form security compliance, and Google Search Console & Analytics 4 integration. Use when deploying static or full-stack sites to Vercel, configuring custom domain DNS records, setting up analytics service accounts, resolving deployment upload timeouts, or fixing Chrome insecure form autofill warnings.
 ---
 
-# Web Deployment, DNS Routing & Search Console MCP Skill
+# Web Deployment, DNS Routing & Search Analytics Skill
 
-An extensive, production-grade guide for web deployment automation, DNS troubleshooting, secure WebMCP forms, and Model Context Protocol (MCP) analytics integrations.
+Directional workflows and architectural patterns for web deployment automation, DNS configuration, secure WebMCP forms, and search analytics integrations.
 
 ---
 
-## Quick start
+## Quick Start Guidelines
 
 ```bash
-# 1. Optimize deployment payload and deploy to Vercel production
-# Note: Use environment variable VERCEL_TOKEN rather than inline command line flags
-npx vercel --prod --yes --scope <your-scope>
+# 1. Prepare project root with .vercelignore to optimize deployment payload
+# 2. Authenticate using official Vercel CLI session
+vercel login
 
-# 2. Authenticate Google Search Console via MCP
-npx search-console-mcp setup --engine=google
-
-# 3. Authenticate Google Analytics 4 (GA4) via MCP
-npx search-console-mcp setup --engine=ga4
+# 3. Deploy to production using official Vercel CLI
+vercel --prod
 ```
 
 ---
 
-## Guided Workflows
+## Directional Workflows
 
 ### 1. Custom Domain & DNS Setup (Namecheap + Vercel)
-- **Hint (Redirect Loops):** Check if `www` points to your root domain while the root domain redirects back. Keep only ONE target CNAME.
-- **Hint (Vercel Anycast):** Point the `@` A Record to Vercel's Anycast IP (`216.198.79.1` or `76.76.21.21`).
-- **Hint (Email Records):** Keep existing `v=spf1...` TXT records intact when updating DNS for mail forwarding.
+- **Apex Record Setup:** Navigate to Namecheap Advanced DNS. Point the `@` A Record to Vercel's Anycast IP (`216.198.79.1` or `76.76.21.21`).
+- **Subdomain Record Setup:** Point the `www` CNAME record to your Vercel project target DNS address.
+- **Redirect Loop Prevention:** Ensure `www` does NOT point back to the root domain if the root domain redirects to `www`.
+- **Email Record Protection:** Preserve existing `v=spf1...` TXT records for email forwarding when updating DNS records.
 
 ### 2. Form Security & Chrome Autofill Compliance
-- **Hint (Insecure Action):** Replace `action="mailto:"` with a secure HTTPS POST endpoint (e.g. FormSubmit).
-- **Hint (Autofill Flags):** Add `autocomplete="on"` to `<form>` and explicit `autocomplete` types to inputs.
-- **Hint (WebMCP Schema):** Annotate form fields with `itemscope itemtype="https://schema.org/ContactAction"`.
+- **Secure Form Action:** Replace `action="mailto:"` with an HTTPS POST endpoint to ensure data transit security.
+- **Autofill Attributes:** Add `autocomplete="on"` to `<form>` and explicit `autocomplete` field values (e.g. `autocomplete="name"`, `autocomplete="email"`).
+- **WebMCP Schema Annotation:** Annotate form container with `itemscope itemtype="https://schema.org/ContactAction"`.
 
-### 3. Search Console & GA4 MCP Integration
-- **Hint (OAuth Callback):** The local OAuth server expects `/oauth2callback` at `http://localhost:3000/oauth2callback`.
-- **Hint (GA4 API Denial):** If getting `7 PERMISSION_DENIED`, enable `analyticsdata.googleapis.com` in Google Cloud Console.
-- **Hint (Service Account Role):** Grant the Service Account email **Viewer** access under GA4 *Property Access Management*.
+### 3. Google Search Console & Analytics Integration
+- **Google Search Console Verification:** Access Google Search Console dashboard, submit `sitemap.xml`, and verify ownership via HTML tag or DNS record.
+- **Google Analytics 4 Service Account:** Create a Service Account in Google Cloud Console, download the credentials JSON key, and assign **Viewer** access in GA4 *Property Access Management*.
+- **API Enablement Directions:** Navigate to Google Cloud Console API Library and enable the **Google Analytics Data API**.
 
 ---
 
-## References & Documentation
+## References & Pattern Guidelines
 
-- See [REFERENCE.md](REFERENCE.md) for deep technical diagnostics and error codes.
-- See [EXAMPLES.md](EXAMPLES.md) for complete template patterns, MCP client configs, and CLI snippets.
+- See [REFERENCE.md](REFERENCE.md) for deep technical diagnostics and DNS resolution matrices.
+- See [EXAMPLES.md](EXAMPLES.md) for template patterns and HTML form code stubs.
