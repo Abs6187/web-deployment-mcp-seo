@@ -4,9 +4,9 @@ This document contains copy-pasteable configuration examples, HTML/CSS code stub
 
 ---
 
-## 🔗 Repository References
-- 📦 **Search Console MCP:** [github.com/saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
-- 📦 **Vercel CLI:** [github.com/vercel/vercel](https://github.com/vercel/vercel)
+## Repository References
+- **Search Console MCP:** [github.com/saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
+- **Vercel CLI:** [github.com/vercel/vercel](https://github.com/vercel/vercel)
 
 ---
 

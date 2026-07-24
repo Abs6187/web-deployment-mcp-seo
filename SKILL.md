@@ -9,20 +9,20 @@ An extensive, production-grade guide for web deployment automation, DNS troubles
 
 ---
 
-## 🔗 Official Repositories & Documentation Links
+## Official Repositories & Documentation Links
 
 ### Core Repositories & Tools
-- 📦 **Search Console MCP Repository:** [saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
-- 📦 **Vercel CLI Repository:** [vercel/vercel](https://github.com/vercel/vercel)
-- 📦 **Google APIs Node Client:** [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client)
+- **Search Console MCP Repository:** [saurabhsharma2u/search-console-mcp](https://github.com/saurabhsharma2u/search-console-mcp)
+- **Vercel CLI Repository:** [vercel/vercel](https://github.com/vercel/vercel)
+- **Google APIs Node Client:** [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client)
 
 ### Essential Documentation Links to Visit
-- 📚 **Search Console MCP Official Documentation:** [searchconsolemcp.saurabh.app](https://searchconsolemcp.saurabh.app/)
-- 📚 **Google Analytics Data API Reference:** [developers.google.com/analytics/devguides/reporting/data/v1](https://developers.google.com/analytics/devguides/reporting/data/v1)
-- 📚 **Google Cloud Console Credentials:** [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
-- 📚 **Bing Webmaster Tools API Settings:** [www.bing.com/webmasters/settings/api](https://www.bing.com/webmasters/settings/api)
-- 📚 **Vercel Custom Domains & DNS Routing:** [vercel.com/docs/projects/domains](https://vercel.com/docs/projects/domains)
-- 📚 **Schema.org ContactAction Microdata Spec:** [schema.org/ContactAction](https://schema.org/ContactAction)
+- **Search Console MCP Official Documentation:** [searchconsolemcp.saurabh.app](https://searchconsolemcp.saurabh.app/)
+- **Google Analytics Data API Reference:** [developers.google.com/analytics/devguides/reporting/data/v1](https://developers.google.com/analytics/devguides/reporting/data/v1)
+- **Google Cloud Console Credentials:** [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
+- **Bing Webmaster Tools API Settings:** [www.bing.com/webmasters/settings/api](https://www.bing.com/webmasters/settings/api)
+- **Vercel Custom Domains & DNS Routing:** [vercel.com/docs/projects/domains](https://vercel.com/docs/projects/domains)
+- **Schema.org ContactAction Microdata Spec:** [schema.org/ContactAction](https://schema.org/ContactAction)
 
 ---
 
@@ -43,20 +43,20 @@ npx search-console-mcp setup --engine=ga4
 
 ## Guided Workflows
 
-### 🌐 1. Custom Domain & DNS Setup (Namecheap + Vercel)
-- 💡 **Hint (Redirect Loops):** Check if `www` points to your root domain while the root domain redirects back. Keep only ONE target CNAME.
-- 💡 **Hint (Vercel Anycast):** Point the `@` A Record to Vercel's Anycast IP (`216.198.79.1` or `76.76.21.21`).
-- 💡 **Hint (Email Records):** Keep existing `v=spf1...` TXT records intact when updating DNS for mail forwarding.
+### 1. Custom Domain & DNS Setup (Namecheap + Vercel)
+- **Hint (Redirect Loops):** Check if `www` points to your root domain while the root domain redirects back. Keep only ONE target CNAME.
+- **Hint (Vercel Anycast):** Point the `@` A Record to Vercel's Anycast IP (`216.198.79.1` or `76.76.21.21`).
+- **Hint (Email Records):** Keep existing `v=spf1...` TXT records intact when updating DNS for mail forwarding.
 
-### 🔒 2. Form Security & Chrome Autofill Compliance
-- 💡 **Hint (Insecure Action):** Replace `action="mailto:"` with a secure HTTPS POST endpoint (e.g. FormSubmit).
-- 💡 **Hint (Autofill Flags):** Add `autocomplete="on"` to `<form>` and explicit `autocomplete` types to inputs.
-- 💡 **Hint (WebMCP Schema):** Annotate form fields with `itemscope itemtype="https://schema.org/ContactAction"`.
+### 2. Form Security & Chrome Autofill Compliance
+- **Hint (Insecure Action):** Replace `action="mailto:"` with a secure HTTPS POST endpoint (e.g. FormSubmit).
+- **Hint (Autofill Flags):** Add `autocomplete="on"` to `<form>` and explicit `autocomplete` types to inputs.
+- **Hint (WebMCP Schema):** Annotate form fields with `itemscope itemtype="https://schema.org/ContactAction"`.
 
-### 🔍 3. Search Console & GA4 MCP Integration
-- 💡 **Hint (OAuth Callback):** The local OAuth server expects `/oauth2callback` at `http://localhost:3000/oauth2callback`.
-- 💡 **Hint (GA4 API Denial):** If getting `7 PERMISSION_DENIED`, enable `analyticsdata.googleapis.com` in Google Cloud Console.
-- 💡 **Hint (Service Account Role):** Grant the Service Account email **Viewer** access under GA4 *Property Access Management*.
+### 3. Search Console & GA4 MCP Integration
+- **Hint (OAuth Callback):** The local OAuth server expects `/oauth2callback` at `http://localhost:3000/oauth2callback`.
+- **Hint (GA4 API Denial):** If getting `7 PERMISSION_DENIED`, enable `analyticsdata.googleapis.com` in Google Cloud Console.
+- **Hint (Service Account Role):** Grant the Service Account email **Viewer** access under GA4 *Property Access Management*.
 
 ---
 
