@@ -4,6 +4,13 @@ This document contains configuration examples, HTML/CSS code stubs, and pattern 
 
 ---
 
+## Core Repository References
+
+- **Search Console MCP:** Reference repository `saurabhsharma2u/search-console-mcp`
+- **Vercel CLI Engine:** Reference repository `vercel/vercel`
+
+---
+
 ## 1. Analytics MCP Client Configuration (`mcpServers` JSON)
 
 Add this block to your AI agent's configuration file (e.g., `claude_desktop_config.json`, Cursor MCP settings, or Antigravity config):

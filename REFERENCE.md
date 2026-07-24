@@ -6,22 +6,27 @@ An extensive technical reference covering diagnostic procedures, root-cause anal
 
 ## Directional Navigation & API Setup Guide
 
+### Core Repository References
+- **Search Console MCP:** Reference repository `saurabhsharma2u/search-console-mcp`
+- **Vercel CLI Engine:** Reference repository `vercel/vercel`
+- **Google APIs Client:** Reference repository `googleapis/google-api-nodejs-client`
+
 ### Google Cloud & Analytics Setup Directions
 1. **Google Analytics Data API Enablement:**
-   - Navigate to Google Cloud Console → APIs & Services → Library.
+   - Go to Google Cloud Console > APIs & Services > Library.
    - Search for **Google Analytics Data API** and click **Enable**.
 2. **Service Account Setup:**
-   - Navigate to Google Cloud Console → IAM & Admin → Service Accounts.
+   - Go to Google Cloud Console > IAM & Admin > Service Accounts.
    - Create a Service Account, generate a JSON key, and download it locally.
 3. **Google Analytics Access Delegation:**
-   - Open Google Analytics → Admin → Property Settings → Property Access Management.
+   - Go to Google Analytics > Admin > Property Settings > Property Access Management.
    - Add the Service Account email address with **Viewer** permissions.
 
 ### Hosting & Search Engine Directions
 1. **Google Search Console Ownership:**
-   - Open Google Search Console, add your domain property, and submit `sitemap.xml`.
+   - Go to Google Search Console Dashboard, add your domain property, and submit `sitemap.xml`.
 2. **Bing Webmaster Tools Setup:**
-   - Open Bing Webmaster Tools, import your verified Search Console property, or generate an API key under Account Settings.
+   - Go to Bing Webmaster Tools Portal, import your verified Search Console property, or generate an API key under Account Settings.
 
 ---
 
@@ -30,6 +35,9 @@ An extensive technical reference covering diagnostic procedures, root-cause anal
 ### 1. Vercel CLI Upload & Network Diagnostics
 
 #### Symptom: `ECONNRESET` / Deployment Upload Timeout
+```text
+Error: request to Vercel deployments API failed, reason: read ECONNRESET
+```
 * **Root Cause Analysis:** Vercel CLI packages all files in the current working directory by default. When `.git` directories, `node_modules`, or build caches are present, the payload size easily exceeds 10MB+. On slower connections, the HTTP POST stream breaks, resulting in a TCP `ECONNRESET`.
 * **Resolution Directions:**
   1. Create a `.vercelignore` file in the project root:

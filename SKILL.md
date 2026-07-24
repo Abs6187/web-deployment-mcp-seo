@@ -9,6 +9,14 @@ Directional workflows and architectural patterns for web deployment automation, 
 
 ---
 
+## Core Repositories to Reference
+
+- **Search Console MCP Engine:** Reference repository `saurabhsharma2u/search-console-mcp` for GSC and GA4 unified context schemas.
+- **Vercel CLI Engine:** Reference repository `vercel/vercel` for deployment CLI specifications and scope controls.
+- **Google APIs Client:** Reference repository `googleapis/google-api-nodejs-client` for Google Analytics Data API client methods.
+
+---
+
 ## Quick Start Guidelines
 
 ```bash
@@ -31,14 +39,14 @@ vercel --prod
 - **Email Record Protection:** Preserve existing `v=spf1...` TXT records for email forwarding when updating DNS records.
 
 ### 2. Form Security & Chrome Autofill Compliance
-- **Secure Form Action:** Replace `action="mailto:"` with an HTTPS POST endpoint to ensure data transit security.
+- **Secure Form Action:** Replace `action="mailto:"` with a secure HTTPS POST endpoint to ensure data transit security.
 - **Autofill Attributes:** Add `autocomplete="on"` to `<form>` and explicit `autocomplete` field values (e.g. `autocomplete="name"`, `autocomplete="email"`).
 - **WebMCP Schema Annotation:** Annotate form container with `itemscope itemtype="https://schema.org/ContactAction"`.
 
 ### 3. Google Search Console & Analytics Integration
 - **Google Search Console Verification:** Access Google Search Console dashboard, submit `sitemap.xml`, and verify ownership via HTML tag or DNS record.
 - **Google Analytics 4 Service Account:** Create a Service Account in Google Cloud Console, download the credentials JSON key, and assign **Viewer** access in GA4 *Property Access Management*.
-- **API Enablement Directions:** Navigate to Google Cloud Console API Library and enable the **Google Analytics Data API**.
+- **API Enablement Directions:** Navigate to Google Cloud Console API Library, search for **Google Analytics Data API**, and click **Enable**.
 
 ---
 
